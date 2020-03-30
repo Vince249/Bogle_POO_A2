@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TD9 - TD10 Bogle</name>
+    </assembly>
+    <members>
+        <member name="T:TD9___TD10_Bogle.Dictionaire">
+            <summary>
+            classe définissant le dictionnaire que l'on va utiliser pour valider les mots (si les mots saisis par les joueurs appartiennent au dictionnaire)
+            </summary>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Dictionaire.#ctor(System.String)">
+            <summary>
+            le dictionnaire est crée à partir d'un fichier, "MotsPossibles.txt"
+            </summary>
+            <param name="filename"> le nom du fichier </param>
+        </member>
+        <member name="P:TD9___TD10_Bogle.Dictionaire.TableauMotsPossibles">
+            <summary>
+            Pour pouvoir accéder à tous les mots contenus dans le dictionnaire
+            </summary>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Dictionaire.TooooString">
+            <summary>
+            pour pouvoir afficher tous les mots du dictionnaire
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Dictionaire.RechDicoRecursif(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            pour savoir si le mot saisi par un joueur se trouve dans le dictionnaire
+            </summary>
+            <param name="mot"> mot saisi </param>
+            <param name="debut"> index du début de la recherche (0) </param>
+            <param name="fin"> index de la fin de la recherche (dico.TableauMotsPossibles[mot.Length - 2].Length --> représente le dernier index du groupe de mot de même taille que le mot saisi par un joueur) </param>
+            <param name="index"> index du mot (lettre) </param>
+            <returns> on retourne vrai si le mot se trouve dans le dictionnaire ou faux sinon</returns>
+        </member>
+        <member name="T:TD9___TD10_Bogle.Dé">
+            <summary>
+            Classe définissant un dé, va nous servir pour tirer une lettre au hasard sur une case du plateau
+            </summary>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Dé.#ctor(System.Char[])">
+            <summary>
+            un dé est crée par un ensemble de lettres
+            </summary>
+            <param name="ensembleDeLettres"> tableau contenant un ensemble de lettres, en l'occurence 6 </param>
+        </member>
+        <member name="P:TD9___TD10_Bogle.Dé.Lettre">
+            <summary>
+             pouvoir obtenir la lettre de la face supérieur du dé plus tard dans le programme
+            </summary>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Dé.Lance(System.Random)">
+            <summary>
+            sert à lancer le dé
+            </summary>
+            <param name="r"> générateur --> va nous fournir un chiffre au hasard entre 0 et 5, nous indiquant un index de "ensembleDeLettre" et nous donnera ainsi la face supérieur du dé tirée au sort </param>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Dé.AfficherLettreDé">
+            <summary>
+             Va nous servir dans la méthode ToooString après pour afficher les lettres du tableau d'ensemble de lettre d'un dé (toutes les faces du dé)
+            </summary>
+            <returns> string contenant toutes les lettres (la valeur des 6 faces)</returns>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Dé.ToooString">
+            <summary>
+            Sert à afficher tout ce qui caractérise un dé
+            </summary>
+            <returns> on retourne donc un string contenant toutes les caractéristique d'un dé </returns>
+        </member>
+        <member name="T:TD9___TD10_Bogle.Joueur">
+            <summary>
+            Classe définissant un joueur, ce dernier est caractérisé par son nom son score et la liste des mots qu'il a trouvé
+            </summary>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Joueur.#ctor(System.String)">
+            <summary>
+            un joueur est crée à partir de son nom
+            </summary>
+            <param name="nom"> nom du joueur </param>
+        </member>
+        <member name="P:TD9___TD10_Bogle.Joueur.Nom">
+            <summary>
+            pouvoir obtenir le nom du joueur plus tard dans le programme
+            </summary>
+        </member>
+        <member name="P:TD9___TD10_Bogle.Joueur.Score">
+            <summary>
+            pouvoir obtenir et modifier le score du joueur plus tard dans le programme
+            </summary>
+        </member>
+        <member name="P:TD9___TD10_Bogle.Joueur.ListeMotsTrouvés">
+            <summary>
+            pouvoir obtenir la liste des mots trouvés par le joueur plus tard dans le programme
+            </summary>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Joueur.Contain(System.String)">
+            <summary>
+            Savoir si le mot rentré en paramètre se trouve dans la liste des mots trouvés par le joueur
+            </summary>
+            <param name="mot"> ici le mot sera le mot tapé par un joueur dans le jeu </param>
+            <returns> on retourne vrai si le mot appartient à la liste ou faux sinon </returns>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Joueur.Add_Mot(System.String)">
+            <summary>
+            Sert à ajouter un mot à la liste de mots trouvés par le joueur
+            </summary>
+            <param name="mot"> ici le mot sera le mot tapé par un joueur dans le jeu </param>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Joueur.AfficherListeMotsTrouvés">
+            <summary>
+            Va nous servir dans la méthode TooString après pour afficher les mots de la liste des mots trouvés par le joueur
+            </summary>
+            <returns> on retourne la liste des mots trouvés par le joueur </returns>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Joueur.TooString">
+            <summary>
+            Sert à afficher tout ce qui caractérise un joueur
+            </summary>
+            <returns> on retourne donc un string contenant toutes les caractéristique d'un joueur </returns>
+        </member>
+        <member name="T:TD9___TD10_Bogle.Plateau">
+            <summary>
+            classe définissant le plateau sur lequel une manche du jeu va se dérouler 
+            </summary>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Plateau.#ctor(System.String)">
+            <summary>
+            la plateau est crée à partir d'un fichier, "Des.txt"
+            </summary>
+            <param name="filename"> nom du fichier </param>
+        </member>
+        <member name="P:TD9___TD10_Bogle.Plateau.MatricePlateau">
+            <summary>
+            pour pouvoir accéder à la matrice décrivant en réalité le plateau
+            </summary>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Plateau.ToooooString">
+            <summary>
+            pour afficher le plateau dans son intégralité
+            </summary>
+            <returns> on retourne une matrice 4x4 affichant toutes les lettres contenues sur le plateau </returns>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Plateau.LancéDéSurPlateau">
+            <summary>
+            pour lancé les dés contenues sur chaque case du plateau (chaque case est composé d'un dé)
+            </summary>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Plateau.Test_Plateau(System.Char[])">
+            <summary>
+            pour savoir si le mot se trouve sur le plateau en respectant les règles d'adjacence
+            </summary>
+            <param name="mot"> mot saisi par un joueur </param>
+            <returns> on retourne vrai si le mot est sur le plateau et respecte les règles d'adjacense ou faux sinon </returns>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Plateau.LettresAdjacentes(System.Int32,System.Int32,System.Char[0:,0:])">
+            <summary>
+            pour connaitre les lettres adjacentes à la cellule où l'on se trouve
+            </summary>
+            <param name="ligneMatrice"> ligne de la cellule à laquelle on se trouve </param>
+            <param name="colonneMatrice"> colonne de la cellule à laquelle on se trouve </param>
+            <param name="matrice"> matrice "marquéPassageMot" pour respecter le fait qu'on ne puisse pas réutiliser une case sur laquelle on est déjà passé </param>
+            <returns> on retourne une matrice 3x3 (car il y a 8 lettres adjacentes + celle où l'on se trouve) composée des lettres adjacentes </returns>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Plateau.ChangerValeurDeMemoLigne(System.Int32,System.Int32)">
+            <summary>
+            pour regarder à partir de (la case d'où l'on vient de revenir)+1 --> utile lorsque l'on revient sur nos pas car on s'est trompé de chemin pour trouvé le mot
+            </summary>
+            <param name="memoLigne"> ligne de la cellule où l'on se trouvait précédemment (avant de revenir sur nos pas) </param>
+            <param name="memoColonne"> colonne de la cellule où l'on se trouvait précédemment (avant de revenir sur nos pas) </param> 
+            <returns> on retourne la ligne de la cellule que l'on va explorer à la prochaine boucle (dans la méthode Test_Plateau) </returns>
+        </member>
+        <member name="M:TD9___TD10_Bogle.Plateau.ChangerValeurDeMemoColonne(System.Int32,System.Int32)">
+            <summary>
+            pour regarder à partir de (la case d'où l'on vient de revenir)+1 --> utile lorsque l'on revient sur nos pas car on s'est trompé de chemin pour trouvé le mot
+            </summary>
+            <param name="memoLigne"> ligne de la cellule où l'on se trouvait précédemment (avant de revenir sur nos pas) </param>
+            <param name="memoColonne"> colonne de la cellule où l'on se trouvait précédemment (avant de revenir sur nos pas) </param>
+            <returns> on retourne la colonne de la cellule que l'on va explorer à la prochaine boucle (dans la méthode Test_Plateau) </returns>
+        </member>
+        <member name="T:TD9___TD10_Bogle.Program">
+            <summary>
+            Classe où le jeu est mis en place
+            </summary>
+        </member>
+    </members>
+</doc>
